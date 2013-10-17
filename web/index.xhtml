@@ -13,18 +13,18 @@
         <div class="formBody">
             <h:form class="loginForm">
                 <div class="form_row">
-                    <h:outputLabel class="Info" value="User Name:" for="userName"/>
-                    <h:inputText id="userName" label="User Name" required="true" value="#{registrationBean.firstName}" />
+                    <h:outputLabel class="Info" value="First Name:" for="firstName"/>
+                    <h:inputText id="firstName" label="First Name" required="true" value="#{manageLogin.firstName}" />
                     <div class="error"><h:message for="userName"/></div>
                 </div>
                 <div class="form_row">
-                    <h:outputLabel class="Info" value="Password:" for="password"/>
-                    <h:inputText id="password" label="Password" required="true" value="#{registrationBean.age}"/>
-                    <div class="error"><h:message class="error" for="password"/></div>
+                    <h:outputLabel class="Info" value="Customer ID:" for="customerID"/>
+                    <h:inputText id="customerID" label="Customer ID" required="true" value="#{manageLogin.customerID}"/>
+                    <div class="error"><h:message class="error" for="customerID"/></div>
                 </div>
                 <div class="form_row">
-                    <h:commandButton class="loginButton" value="Login" action="ATM" />
-                </div>               
+                    <h:commandButton id="login" value ="Login" action="#{manageLogin.validLogin}" />
+                </div>
             </h:form>
         </div>    
     </h:body>

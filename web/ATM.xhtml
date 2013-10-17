@@ -8,6 +8,8 @@
         <h:outputStylesheet library="css" name="styles.css"/>
     </h:head>
     <h:body>
+        <h:inputHidden value="14" id="custID" />
+        <h:inputHidden value="Name" id="fName" />
         
         <h3>ATM Page</h3>
         <div class="formBody">
@@ -15,10 +17,8 @@
                 <h:form class='subForm'>
                     <div class="form_row">
                         <h:outputLabel class="Info" value="Deposit:" for="deposit"/>
-                        <h:inputText id="deposit" label="Deposit" required="true" value="#{registrationBean.deposit}" >
-                            <f:validator validatorId="numValidator"/>
-                        </h:inputText>
-                        <h:commandButton class="ok" value="ok" action="confirmation" />
+                        <h:inputText id="deposit" label="Deposit" required="true" value="#{manageATM.depositAmount}" />                   
+                        <h:commandButton class="ok" value="ok" action="#{manageATM.makeDeposit(deposit)}" />
                         <div class="error"><h:message class="error" for="deposit"/></div>
                     </div>
                 </h:form>
@@ -26,14 +26,11 @@
                 <h:form class='subForm'>
                     <div class="form_row">
                         <h:outputLabel class="Info" value="Withdraw:" for="withdraw"/>
-                        <h:inputText id="withdraw" label="Withdraw" required="true" value="#{registrationBean.withdraw}">
-                            <f:validator validatorId="numValidator"/>
-                        </h:inputText>
-                        <h:commandButton class="ok" value="ok" action="confirmation" />
-                        <div class="error"><h:message class="error" for="withdraw"/></div>
-                    </div>
+                        <h:inputText id="withdraw" label="Withdraw" required="true" value="#{manageATM.withdrawlAmount}"/>                   
+                        <h:commandButton class="ok" value="ok" action="#{manageATM.makeWithdrawl(withdraw)}" />
+                    </div>    
                 </h:form>
-            
+                
                 <h:form class='subForm'>
                     <div class="form_row">
                         <h:outputLabel class="Info" for="toAccount" value="To Account:"/>
@@ -55,7 +52,7 @@
                     </div>
                 </h:form>
             </div>
-        </div>    
+        </div>
     </h:body>
 </html>
 
